@@ -1,0 +1,10 @@
+.sign__input_email{
+    width: 358px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.1;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0 0 13px 0;
+}
