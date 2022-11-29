@@ -1,0 +1,6 @@
+.header__block-user{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 6px;
+    gap: 21px;
+}
