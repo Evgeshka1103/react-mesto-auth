@@ -1,63 +1,78 @@
-import { useState, useCallback } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import SignForm from './SignForm';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-export default function Register({ onRegister, onInfoToolTipWithErr, onInfoToolTipWithSuccess }) {
-    
+export default function Register({ handleRegisterUser }) {
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const history = useHistory();
-
     function handleEmailChange(e) {
         setEmail(e.target.value);
-    };
+    }
 
     function handlePasswordChange(e) {
         setPassword(e.target.value);
-    };
+    }
 
-    const resetForm = useCallback(() => {
-        setEmail('');
-        setPassword('');
-    }, []);
+    function handleFormSubmit(e) {
+        e.preventDefault();
+        const email = email;
+        const password = password;
 
-    function handleSubmit(evt) {
-        evt.preventDefault();
-        onRegister({ email, password })
-            .then(resetForm)
-            .then(() => {
-                history.push('/sign-in');
-                onInfoToolTipWithSuccess();
-            })
-            .catch(() => {
-                onInfoToolTipWithErr();
-            })
-    };
+        handleRegisterUser(email, password);
+    }
 
     return (
-        <div className="sign">
+        <div className="auth">
+            <h2 className="auth__title">Регистрация</h2>
+            <form className="auth__form" onSubmit={handleFormSubmit}>
 
-            <h2 className="sign__title">Регистрация</h2>
+                <div className="auth__field">
+                    <input
 
-            <SignForm
-            onEmailChange={handleEmailChange}
-            onPasswordChange={handlePasswordChange}
-                onSubmit={handleSubmit}
-                email={email}
-                password={password}
-                button="Зарегистрироваться"
-            />
-            
-            <div className="sign__register">
+                        type="email"
+                        id="input-email"
+                        className="auth__input_email"
+                        placeholder="email"
+                        value={email}
+                        name="email"
+                        minlength="8"
+                        maxlength="40"
+                        onChange={handleEmailChange}
+                        required />
+                    <span
+                        className="error" />
+                </div>
+
+                <div className="auth__field">
+                    <input
+                        type="password"
+                        id="input-password"
+                        className="auth__input_password"
+                        placeholder="password"
+                        value={password}
+                        name="password"
+                        minlength="6"
+                        maxlength="40"
+                        onChange={handlePasswordChange}
+                        required />
+                    <span
+                        className="error" />
+                </div>
+                <button
+                    type="submit"
+                    className="auth__buton">
+                    Зарегистрироваться
+                </button>
+            </form>
+            <div className="auth__register">
                 <p>Уже зарегистрированы?</p>
-                <Link 
-                to="sign-in" 
-                className="sign__login_link"> 
-                Войти
+                <Link
+                    className="auth__login"
+                    to="/sing-in">
+                    Войти
                 </Link>
             </div>
-
         </div>
-    );
+    )
 }

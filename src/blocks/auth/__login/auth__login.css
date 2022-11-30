@@ -1,9 +1,8 @@
-.sign__register{
-    width: 358;
-    margin: 15px 0 0;
-    display: inline;
+.auth__login{
     font-weight: 400;
     font-size: 14px;
     line-height: 1.2;
+    text-decoration: none;
     color: #ffffff;
+    
 }

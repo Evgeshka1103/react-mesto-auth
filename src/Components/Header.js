@@ -1,41 +1,53 @@
 import logo from '../images/logo.svg';
 
-import {Route, Switch, Link } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 
-export default function Header(props) {
+export default function Header({ email, handleSignOut }) {
+
     return (
+
         <header className="header">
+
             <img
                 className="header__logo"
                 src={logo}
                 alt="Логотип" />
+                
             <Switch>
-                <Route path="/sign-in">
-                    <Link 
-                    to="/sign-up" 
-                    className="header__link">
-                    Регистрация
-                    </Link>
-                </Route>
-                <Route path="/sign-up">
-                    <Link 
-                    to="/sign-in" 
-                    className="header__link">
-                    Войти
-                    </Link>
-                </Route>
-                <Route path="/">
+
+                <Route exact path="/">
                     <div className="header__block-user">
-                        <p className="header__email">{props.email}</p>
-                        <Link 
-                        to="/sign-in" 
-                        className="header__link" 
-                        onClick={props.onLogout}>
-                        Выйти
+                        <h4
+                            className="header__email-container">
+                            {email}
+                        </h4>
+                        <Link
+                            className="header__link"
+                            to="/sign-in"
+                            onClick={handleSignOut}>
+                            Выйти
                         </Link>
                     </div>
+
                 </Route>
+                <Route path="/sign-up">
+                    <Link
+                        className="header__link"
+                        to="/sign-in">
+                        Войти
+                    </Link>
+                </Route>
+
+                <Route path="/sign-in">
+                    <Link
+                        className="header__link"
+                        to="/sign-up">
+                        Регистрация
+                    </Link>
+                </Route>
+
             </Switch>
+
         </header>
-    );
-} 
+    )
+}

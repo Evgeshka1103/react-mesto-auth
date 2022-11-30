@@ -1,5 +1,5 @@
-.sign__field{
+.auth__form{
+    width: 100%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 13px;
 }
