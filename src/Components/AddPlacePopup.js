@@ -41,9 +41,9 @@ export default function AddPlacePopup(props) {
                     className="popup__input popup__input_form-name popup__input_form-error"
                     placeholder="Название"
                     name="name"
-                    minlength="2"
-                    maxlength="30"
-                    value={name}
+                    minLength="2"
+                    maxLength="30"
+                    value={name || ''}
                     onChange={handleNameChange}
                     required />
 
@@ -61,7 +61,7 @@ export default function AddPlacePopup(props) {
                     className="popup__input popup__input_form-about popup__input_form-error"
                     placeholder="Ссылка на картинку"
                     name="link"
-                    value={link}
+                    value={link || ''}
                     onChange={handleLinkChange}
                     required />
 

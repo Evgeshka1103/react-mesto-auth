@@ -23,7 +23,7 @@ export default function Header({ email, handleSignOut }) {
                         </h4>
                         <Link
                             className="header__link"
-                            to="/sign-in"
+                            to="/sign-up"
                             onClick={handleSignOut}>
                             Выйти
                         </Link>

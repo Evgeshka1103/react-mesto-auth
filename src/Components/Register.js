@@ -3,21 +3,21 @@ import { Link } from "react-router-dom";
 
 export default function Register({ handleRegisterUser }) {
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [userEmail, setUserEmail] = useState('');
+    const [userPassword, setUserPassword] = useState('');
 
     function handleEmailChange(e) {
-        setEmail(e.target.value);
+        setUserEmail(e.target.value);
     }
 
     function handlePasswordChange(e) {
-        setPassword(e.target.value);
+        setUserPassword(e.target.value);
     }
 
     function handleFormSubmit(e) {
         e.preventDefault();
-        const email = email;
-        const password = password;
+        const email = userEmail;
+        const password = userPassword;
 
         handleRegisterUser(email, password);
     }
@@ -34,10 +34,10 @@ export default function Register({ handleRegisterUser }) {
                         id="input-email"
                         className="auth__input_email"
                         placeholder="email"
-                        value={email}
+                        value={userEmail}
                         name="email"
-                        minlength="8"
-                        maxlength="40"
+                        minLength="6"
+                        maxLength="40"
                         onChange={handleEmailChange}
                         required />
                     <span
@@ -50,10 +50,10 @@ export default function Register({ handleRegisterUser }) {
                         id="input-password"
                         className="auth__input_password"
                         placeholder="password"
-                        value={password}
+                        value={userPassword}
                         name="password"
-                        minlength="6"
-                        maxlength="40"
+                        minLength="6"
+                        maxLength="40"
                         onChange={handlePasswordChange}
                         required />
                     <span

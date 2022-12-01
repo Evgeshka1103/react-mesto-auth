@@ -44,10 +44,10 @@ export default function EditProfilePopup(props) {
                     id="input-name"
                     className="popup__input popup__input_form-name popup__input_form-error"
                     placeholder="Имя"
-                    value={name}
+                    value={name || ''}
                     name="name"
-                    minlength="2"
-                    maxlength="40"
+                    minLength="2"
+                    maxLength="40"
                     onChange={handleNameChange}
                     required />
 
@@ -63,10 +63,10 @@ export default function EditProfilePopup(props) {
                     id='input-about'
                     className="popup__input popup__input_form-about popup__input_form-error"
                     placeholder="О себе"
-                    value={description}
+                    value={description || ''}
                     name="about"
-                    minlength="2"
-                    maxlength="200"
+                    minLength="2"
+                    maxLength="200"
                     onChange={handleDescriptionChange}
                     required />
 
