@@ -1,9 +1,9 @@
 .auth__register{
-    width: 358;
-    margin: 15px 0 0;
-    display: inline;
-    font-weight: 400;
+    color: #fff;
     font-size: 14px;
-    line-height: 1.2;
-    color: #ffffff;
+    font-weight: 400;
+    line-height: 17px;
+    margin: 15px 0 0;
+    padding: 0;
+    text-align: center;
 }

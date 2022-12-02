@@ -5,14 +5,13 @@ class Api {
    }
 
    //проверка
-   #onResponse(response) {
-      if (response.ok) {
-         console.log(response)
-         return response.json();
+   _checkResponse(res) {
+      if (res.ok) {
+         return res.json();
       }
-
-      return Promise.reject({ message: "Ошибка" }, response);
+      return Promise.reject(`Ошибка: ${res.status}`);
    }
+
 
    //Загрузка информации о пользователе с сервера
    getUserInfo() {
@@ -20,7 +19,7 @@ class Api {
          method: 'GET',
          headers: this._headers
       })
-         .then(this.#onResponse)
+         .then(this._checkResponse);
    }
 
    //Загрузка карточек с сервера
@@ -29,7 +28,7 @@ class Api {
          method: 'GET',
          headers: this._headers
       })
-         .then(this.#onResponse)
+         .then(this._checkResponse);
    }
 
    //Редактирование профиля
@@ -42,7 +41,7 @@ class Api {
             about: about
          })
       })
-         .then(this.#onResponse)
+         .then(this._checkResponse);
    }
 
    //Добавление новой карточки
@@ -55,7 +54,7 @@ class Api {
             link: link
          })
       })
-         .then(this.#onResponse)
+         .then(this._checkResponse);
    }
 
    //Отображение количества лайков карточки
@@ -64,7 +63,7 @@ class Api {
          method: 'PUT',
          headers: this._headers
       })
-         .then(this.#onResponse)
+         .then(this._checkResponse);
    }
 
    //Удаление карточки
@@ -73,7 +72,7 @@ class Api {
          method: 'DELETE',
          headers: this._headers
       })
-         .then(this.#onResponse)
+         .then(this._checkResponse);
    }
 
    //Постановка и снятие лайка
@@ -82,7 +81,7 @@ class Api {
          method: 'DELETE',
          headers: this._headers
       })
-         .then(this.#onResponse)
+         .then(this._checkResponse);
    }
 
    changeLikeStatus(id, isLiked) {
@@ -98,7 +97,7 @@ class Api {
             avatar: link
          })
       })
-         .then(this.#onResponse)
+         .then(this._checkResponse);
    }
 }
 
@@ -109,4 +108,3 @@ export default new Api({
       'Content-Type': 'application/json'
    }
 });
-

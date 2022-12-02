@@ -18,12 +18,12 @@ export default function Header({ email, handleSignOut }) {
                 <Route exact path="/">
                     <div className="header__block-user">
                         <h4
-                            className="header__email-container">
+                            className="header__email">
                             {email}
                         </h4>
                         <Link
                             className="header__link"
-                            to="/sign-up"
+                            to="/sign-in"
                             onClick={handleSignOut}>
                             Выйти
                         </Link>

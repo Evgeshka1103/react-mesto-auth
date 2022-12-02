@@ -61,7 +61,7 @@ export default function Login({ handleLoginUser }) {
                 </div>
 
                 <button
-                    className="auth__login">
+                    className="auth__button">
                     Войти
                 </button>
 

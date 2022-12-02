@@ -10,7 +10,7 @@ function onResponse(response) {
 }
 
 export const register = (email, password) => {
-    return fetch(`${BASE_URL}/sign-in`, {
+    return fetch(`${BASE_URL}/signup`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -21,7 +21,7 @@ export const register = (email, password) => {
 }
 
 export const login = (email, password) => {
-    return fetch(`${BASE_URL}/sign-in`, {
+    return fetch(`${BASE_URL}/signin`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

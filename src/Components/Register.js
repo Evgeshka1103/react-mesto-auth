@@ -22,6 +22,7 @@ export default function Register({ handleRegisterUser }) {
         handleRegisterUser(email, password);
     }
 
+
     return (
         <div className="auth">
             <h2 className="auth__title">Регистрация</h2>
@@ -61,7 +62,7 @@ export default function Register({ handleRegisterUser }) {
                 </div>
                 <button
                     type="submit"
-                    className="auth__buton">
+                    className="auth__button">
                     Зарегистрироваться
                 </button>
             </form>
@@ -69,7 +70,7 @@ export default function Register({ handleRegisterUser }) {
                 <p>Уже зарегистрированы?</p>
                 <Link
                     className="auth__login"
-                    to="/sing-in">
+                    to="/sign-in">
                     Войти
                 </Link>
             </div>
