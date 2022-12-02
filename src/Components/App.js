@@ -36,12 +36,12 @@ export default function App() {
 
   const history = useHistory();
 
- const isOpen = isEditAvatarPopupOpen || isEditProfilePopupOpen || isAddPlacePopupOpen || isImagePopupOpen;
+  const isOpen = isEditAvatarPopupOpen || isEditProfilePopupOpen || isAddPlacePopupOpen || isImagePopupOpen;
 
   useEffect(() => {
     Promise.all([
-        api.getUserInfo(),
-        api.getInitialCards()
+      api.getUserInfo(),
+      api.getInitialCards()
     ])
       .then(([userData, cardsData]) => {
         setCurrentUser(userData);
@@ -52,17 +52,17 @@ export default function App() {
 
   useEffect(() => {
     const jwt = localStorage.getItem('jwt');
-      if (jwt) {
-        auth.getContent(jwt)
-          .then((res) => {
-            if (res) {
-              setUserEmail(res.data.email);
-            }
-              setIsLoggedIn(true);
-              history.push('/');
-            })
-          .catch(err => console.log(`Ошибка: ${err}`));
-        }
+    if (jwt) {
+      auth.getContent(jwt)
+        .then((res) => {
+          if (res) {
+            setUserEmail(res.data.email);
+          }
+          setIsLoggedIn(true);
+          history.push('/');
+        })
+        .catch(err => console.log(`Ошибка: ${err}`));
+    }
   }, [isLoggedIn, history]);
 
   useEffect(() => {
@@ -86,7 +86,7 @@ export default function App() {
     setIsEditAvatarPopupOpen(true);
   };
 
-   function handleEditProfileClick() {
+  function handleEditProfileClick() {
     setIsEditProfilePopupOpen(true);
   };
 
@@ -207,7 +207,7 @@ export default function App() {
             <Login handleLoginUser={handleLoginUser} />
           </Route>
           <Route path='/'>
-            { !isStatus ? <Redirect to='/sign-in' /> : <Redirect to='/' /> }
+            {!isStatus ? <Redirect to='/sign-in' /> : <Redirect to='/' />}
           </Route>
         </Switch>
         <InfoTooltip
