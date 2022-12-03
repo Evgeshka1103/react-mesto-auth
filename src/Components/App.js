@@ -63,7 +63,7 @@ export default function App() {
         })
         .catch(err => console.log(`Ошибка: ${err}`));
     }
-  }, [isLoggedIn, history]);
+  }, [isLoggedIn]);
 
   useEffect(() => {
     function handleEsc(evt) {
@@ -79,6 +79,7 @@ export default function App() {
 
   function handleSignOut() {
     localStorage.removeItem('jwt');
+    setIsLoggedIn(false);
     history.push('/sign-in');
   };
 
